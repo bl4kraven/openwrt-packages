@@ -1,0 +1,21 @@
+--- a/n2n_v1/edge.c
++++ b/n2n_v1/edge.c
+@@ -1239,7 +1239,7 @@ effectiveargv[effectiveargc] = 0;
+   /* {int k;for(k=0;k<effectiveargc;++k)  printf("%s\n",effectiveargv[k]);} */
+ 
+   optarg = NULL;
+-  while((opt = getopt_long(effectiveargc, effectiveargv, "k:a:bc:u:g:m:M:s:d:l:p:fvhrt", long_options, NULL)) != EOF) {
++  while((opt = getopt_long(effectiveargc, effectiveargv, "k:a:bc:u:g:m:M:s:d:l:p:fqvhrt", long_options, NULL)) != EOF) {
+     switch (opt) {
+     case 'a':
+ 		  printf("%s\n", optarg);
+@@ -1315,6 +1315,9 @@ effectiveargv[effectiveargc] = 0;
+     case 'v': /* verbose */
+       traceLevel = 3;
+       break;
++    case 'q': /* quiet */
++      traceLevel = 1;
++      break;
+     }
+   }
+ 
